@@ -1,0 +1,5 @@
+<div class="todos-list" >
+  <ul ul-sticky>
+    <todo ng-repeat="todo in todos.getTodos() | filter:filterTodos" todo-data="todo" todo-done="todos.setTodoAsDone(id)" todo-delete="todos.deleteTodo(id)" todo-edit="todos.todoEdit(todoItem)"></todo>
+  </ul>
+</div>

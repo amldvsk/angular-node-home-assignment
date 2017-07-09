@@ -1,0 +1,295 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #F5F6FA;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+body .credits {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #dbdeed;
+  text-transform: uppercase;
+}
+
+body .credits small {
+  font-size: 50%;
+  color: #c1c7e0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.todos {
+  width: 450px;
+  display: flex;
+  border-radius: 0.75em;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(77, 121, 219, .2);
+  flex-direction: column;
+}
+
+
+.todos > .header, .todos > todos , .todos > footer {
+  flex: 1;
+}
+
+.todos .header , .todos .todos-list {
+  position: relative;
+}
+
+.todos .header {
+  text-align: center;
+  background: #4D79DB;
+  color: #fff;
+  padding: 1.5em;
+}
+
+.todos .header form {
+  margin: 0;
+  padding: 0;
+}
+
+.todos .header form input[type="text"] {
+  display: block;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  outline: 0;
+  height: 35px;
+  padding: 1em;
+  background: transparent;
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: lighter;
+}
+
+.todos .header form input[type="text"]::-webkit-input-placeholder {
+   color: rgba(255,255,255,.6);
+}
+
+.todos .header form input[type="text"]:-moz-placeholder { /* Firefox 18- */
+   color: rgba(255,255,255,.6);
+}
+
+.todos .header form input[type="text"]::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(255,255,255,.6);
+}
+
+.todos .header form input[type="text"]:-ms-input-placeholder {
+   color: rgba(255,255,255,.6);
+}
+
+.todos .header .add {
+  position: absolute;
+  background: #FC506C;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  bottom: -15px;
+  right: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(252, 78, 106, .4);
+  border-radius: 50%;
+  display: block;
+  color: #fff;
+  line-height: 45px;
+  text-align: center;
+  display: none;
+}
+
+
+
+
+.todos .todos-list {
+  height: 300px;
+}
+
+
+.todos .todos-list ul {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  right: 0;
+  overflow-y: auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.todos .todos-list ul li.todo {
+  padding: 1em;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.todos .todos-list ul li.todo:last-child {
+  border: none;
+}
+
+.todos .todos-list ul li.todo .done-action {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,.1);
+  float: left;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 25px;
+}
+
+.done-action i.fa {
+  visibility: hidden;
+}
+
+.todos .todos-list ul li.todo.done .done-action {
+  background: #4D79DB;
+  color: #fff;
+}
+
+.todos .todos-list ul li.todo.done .done-action i.fa {
+  visibility: visible;
+}
+
+.todos .todos-list ul li.todo .actions {
+  visibility: hidden;
+  transition: all 0.5s ease;
+  opacity: 0;
+  margin-left: 35px;
+  float: left;
+  position: absolute;
+  padding: 0 10px;
+  display: flex;
+  padding-top: 2px;
+}
+
+.todos .todos-list ul li.todo .actions button {
+  background: transparent;
+  border: none;
+  outline: 0;
+  box-shadow: none;
+  flex: 1;
+  font-size: 1em;
+  color: #7D9AD4;
+  cursor: pointer;
+}
+
+.todos .todos-list ul li.todo .actions button:last-child {
+  color: #FC4E6A;
+}
+
+
+.todos .todos-list ul li.todo:hover > .actions {
+  visibility: visible;
+  opacity: 1;
+}
+
+.todos .todos-list ul li.todo .the-todo {
+  font-size: 1.1em;
+  /*font-weight: bolder;*/
+  color: #7F9BD4;
+  float: left;
+  transition: all 0.5s ease;
+  padding: 0 1.5em 0 0;
+  margin-left: 1em;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+
+.todos .todos-list ul li.todo .the-todo input[type="text"] {
+  box-shadow: none;
+  outline: 0;
+  border: 0;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.todos .todos-list ul li.todo.done .the-todo {
+  opacity: 0.5;
+  position: relative;
+}
+
+.todos .todos-list ul li.todo.done .the-todo:before {
+  position: absolute;
+  top: 54%;
+  content: '';
+  width: 100%;
+  left: 0;
+  background: #4D79DB;
+  height: 2px;
+  z-index: 1;
+}
+
+.todos .todos-list ul li.todo:hover > .the-todo {
+  margin-left: 55px;
+}
+
+
+.todos > footer {
+  background: #f0f4fc;
+  padding: 1.1em;
+}
+
+footer a {
+  float: left;
+  width: calc(100%/3);
+  display: inline-block;
+  text-align: center;
+  text-decoration:  none !important;
+  font-size: 0.8em;
+  color: #ced2e6;
+
+}
+
+footer a:hover, footer a.active {
+  color: #9aa2cc;
+}
+
+
+@media (max-width: 468px) {
+  .todos {
+    width: 350px;
+  }
+
+  .todos .todos-list ul li.todo > .actions {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .todos .todos-list ul li.todo > .the-todo {
+    margin-left: 55px;
+  }
+}

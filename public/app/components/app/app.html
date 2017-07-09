@@ -1,0 +1,11 @@
+<div class="app">
+  <div class="todos">
+    <header></header>
+    <todos todos-filter=app.filter ></todos>
+    <footer>
+      <a href="" ng-click="app.filterTasks(0)" ng-class="{ active : app.filter === 0 }">All</a>
+      <a href="" ng-click="app.filterTasks(1)" ng-class="{ active : app.filter === 1 }">Active</a>
+      <a href="" ng-click="app.filterTasks(2)" ng-class="{ active : app.filter === 2 }">Completed</a>
+    </footer>
+  </div>
+</div>

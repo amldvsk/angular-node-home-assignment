@@ -1,0 +1,12 @@
+<li class="todo clearfix" ng-class="{ done : todo.todoData.done }">
+  <div class="done-action" ng-click="todo.setTodoAsDone()">
+    <i class="fa fa-check" aria-hidden="true"></i>
+  </div>
+  <div class="actions">
+    <button type="button" ng-click="todo.deleteTodo()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+  </div>
+  <div class="the-todo" ng-dblclick="todo.todoData.edit = true">
+    <div ng-if="!todo.todoData.edit">{{ ::todo.todoData.content }}</div>
+    <div ng-if="todo.todoData.edit"><input type="text" ng-model="todo.todoData.content" ng-blur="todo.editTodo()"></div>
+  </div>
+</li>
